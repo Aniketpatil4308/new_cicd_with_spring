@@ -1,10 +1,12 @@
 name: spring boot CI demo
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    workflow_dispatch:
+
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
 
 jobs:
 
@@ -33,6 +35,9 @@ jobs:
 
       - name: 📤 Upload JAR as artifact
         uses: actions/upload-artifact@v4
+        if: github.event_name == 'pull_request'
+
+
         with:
           name: springboot-jar
           path: target/*.jar
@@ -45,6 +50,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+
 
     steps:
       - name: ✅ Checkout code
