@@ -1,4 +1,4 @@
-name: Matrix with java and spring boot
+name: spring boot Matrix test
 
 on:
   push:
@@ -10,10 +10,13 @@ on:
 jobs:
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest]
         java: [17]
+
+    name: Java ${{ matrix.java }} on ${{ matrix.os }}
 
     steps:
 
