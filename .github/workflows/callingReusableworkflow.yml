@@ -9,4 +9,4 @@ on:
 jobs:
 
   use-build-workflow:
-    uses: ./.github/workflow/reusableworkflow.yml@main
+    uses: ./.github/workflows/reusableworkflow.yml@main
