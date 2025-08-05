@@ -1,0 +1,31 @@
+name: Matrix with java and spring boot
+
+on:
+  push:
+    branches: [main]
+
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [11, 17]
+
+    steps:
+
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup java ${{ matrix.java }}
+        uses: actions/setup-java@3
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'temurin'
+
+      - name: run test
+        run: mvn
+
+
+
