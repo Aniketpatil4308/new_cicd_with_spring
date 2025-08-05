@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: setup java ${{ matrix.java }}
-        uses: actions/setup-java@3
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java }}
           distribution: 'temurin'
