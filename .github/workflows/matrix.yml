@@ -3,6 +3,8 @@ name: Matrix with java and spring boot
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [ main ]
 
 
 jobs:
