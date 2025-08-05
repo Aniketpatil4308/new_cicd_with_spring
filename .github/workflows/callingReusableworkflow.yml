@@ -1,0 +1,11 @@
+name: calling Reusable Build Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request: [ main ]
+
+jobs:
+
+  use-build-workflow:
+    uses: ./.github/workflow/reusableworkflow.yml
